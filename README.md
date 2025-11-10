@@ -33,3 +33,27 @@ ex:
 PORT=3000
 
 ```
+
+```
+npx
+```
+
+npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
+
+```
+
+```
+
+npx sequelize db:migrate
+
+```
+queries related all things happen inside queries any queries ....
+```
+
+--controllers pass to the services and services use repositories to interact with data bases
+
+flow are - somebody gives a request to /api/vi/airplanes
+so -- /api - apiroutes then /v1 - v1routes after
+/airplanes - airplaneroutes
+
+in aeroplanesrouted we mapped them into controllers and the controllers call the services and the services call the repository and th is repoistory intenally called crud repository
