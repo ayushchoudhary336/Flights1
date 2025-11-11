@@ -17,10 +17,22 @@
 
 -'utils'- contains helper methods, error classes etc
 
+-'seeders'- Seeder files ka use hota hai backend me initial data automatically daalne ke liye.
+
+```
+npx sequelize seed:generate --name add-airplanes
+ for generating seed files and you have add data manually in these files and after that run the commnd for adding into the data
+
+ npx sequelize db:seed:all    finally data add karne ke liye
+
+ npx sequelize db:seed:undo:all   for undo
+
+```
+
 ### setup the project
 
 - download this template from github and open it in your favourite text-editor
-- in the given root directory create a '.env' file and add thge following env variables ..
+- in the given root directory create a '.env' file and add thge following env variables .
 
 ```
 PORT=<port number of your choice>

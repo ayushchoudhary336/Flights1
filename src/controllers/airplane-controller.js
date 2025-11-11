@@ -1,30 +1,18 @@
 const { AirplaneService } = require("../services");
-// const { StatusCodes } = require("http-status-code"); // <--- Hata diya!
+const { ErrorResponse, SuccessResponse } = require("../utils/common");
 
 async function createAirplane(req, res) {
   try {
-    console.log("inside controllers");
-
     const airplane = await AirplaneService.createAirplane({
       modelNumber: req.body.modelNumber,
       capacity: req.body.capacity,
     });
+    SuccessResponse.data = airplane;
 
-    // StatusCodes.CREATED ki jagah 201 use kiya
-    return res.status(201).json({
-      success: true,
-      messsage: "successfully created an airplane",
-      data: airplane,
-      error: {},
-    });
+    return res.status(201).json(SuccessResponse);
   } catch (error) {
-    // StatusCodes.INTERNAL_SERVER_ERROR ki jagah 500 use kiya
-    return res.status(500).json({
-      success: false,
-      messaage: "spmething went wrong while creating aeroplane",
-      data: {},
-      error: error,
-    });
+    ErrorResponse.error = error;
+    return res.status(500).json(ErrorResponse);
   }
 }
 

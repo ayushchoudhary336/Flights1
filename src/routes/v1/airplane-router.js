@@ -1,11 +1,14 @@
+// src/routes/v1/airplane-router.js
 const express = require("express");
+const { AirplaneController } = require("../../controllers");
+const { AirplaneMiddlewares } = require("../../middleware");
 
-const { Airplanecontroller } = require("../../controllers");
 const router = express.Router();
 
-console.log("inside airplanes routes");
-
-// /api/v/airplanes post request
-router.post("/", Airplanecontroller.createAirplane);
+router.post(
+  "/",
+  AirplaneMiddlewares.validCreateRequest,
+  AirplaneController.createAirplane
+);
 
 module.exports = router;
