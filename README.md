@@ -54,6 +54,13 @@ npx sequelize model:generate --name Airplane --attributes modelNumber:string,cap
 
 ```
 
+for giving initial data in form of seeders we use
+```
+
+npx sequelize db:seed:all
+
+```
+
 ```
 
 npx sequelize db:migrate

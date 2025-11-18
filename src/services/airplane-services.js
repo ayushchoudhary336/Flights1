@@ -1,4 +1,5 @@
 const { AirplaneRepository } = require("../repositories");
+const AppError = require("../utils/errors/app-error");
 
 const airplaneRepository = new AirplaneRepository();
 
@@ -13,6 +14,16 @@ async function createAirplane(data) {
   }
 }
 
+async function getAirplane() {
+  try {
+    const airplanes = await airplaneRepository.getAll();
+    return airplanes;
+  } catch (error) {
+    throw new AppError("cannot fetch data of all the airplanes");
+  }
+}
+
 module.exports = {
   createAirplane,
+  getAirplane,
 };
