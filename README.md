@@ -69,3 +69,22 @@ so -- /api - apiroutes then /v1 - v1routes after
 /airplanes - airplaneroutes
 
 in aeroplanesrouted we mapped them into controllers and the controllers call the services and the services call the repository and th is repoistory intenally called crud repository
+
+//// project notes -----
+
+```
+
+Api gateway - in Api gateway we have reverse proxies ....
+
+Asuume frontend makes a request to search something and load balancer actually forwaded request to api gateway and inside api gateway we have reverse proxies.......
+api gateway collect all the req from from frontend through load balancer
+and the api gateway forwared the req to the corresponding services...
+
+Api gateway can also help you to add a autheniticate services ..
+Api gateway can also include the logic of ratelimiter........
+
+Load Balancer = Traffic Distributor
+API Gateway = Security + Router + Rate Limit + Auth
+Reverse Proxy = Actual service forwarder inside Gateway
+
+```
